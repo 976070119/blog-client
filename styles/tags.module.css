@@ -1,0 +1,12 @@
+.tags {
+  padding: 10px;
+}
+
+.tag {
+    padding: 2px 5px;
+    border-radius: 5px;
+    background: bisque;
+    margin: 0 10px 10px 0;
+    cursor: pointer;
+    display: inline-block;
+  }
