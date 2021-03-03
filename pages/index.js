@@ -17,12 +17,11 @@ const Commits = dynamic(
 )
 
 function Home({ router, data }) {
-  console.log(router)
 
   const [list, setList] = useState([]);
   const [status, setStatus] = useState(false);
   const [title, setTitle] = useState('尘埃落定');
-  const [tags, setTags] = useState([1,2,3]);
+  const [tags, setTags] = useState([]);
 
   useEffect(() => {
     setList(data);
@@ -34,7 +33,6 @@ function Home({ router, data }) {
   }, []);
 
   const getSearchResult = ({ type, val, status }) => {
-    console.log(type, val, status, 6666);
     // if(!val) return message.warn('请输入搜索内容');
     if(val) {
       search(type, val).then(res=>{
@@ -65,13 +63,18 @@ function Home({ router, data }) {
       })
     })
   }
-
+  
   const search = async(type, val) => {
     const res = await fetch(`http://47.100.39.25:2653/search?${type}=${val}`) //articleList
     const resDate = await res.json();
     return resDate;
   }
-  console.log(router)
+  const search2 = async() => {
+    const res = await fetch(`http://10.200.4.153:5000/api/hello`)
+    const resDate = await res.json();
+    return resDate;
+  }
+  search2().then(res => console.log(res))
   return (<div className={styles.container}>
     <Head>
       <title>{title}</title>
@@ -98,6 +101,7 @@ function Home({ router, data }) {
       {/* <div className={styles.left}>left</div> */}
 
       <div id='right' className={styles.right}>
+        标签云
         <Tags getData={getSearchResult} data={tags}/>
       </div>
 

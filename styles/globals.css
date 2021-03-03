@@ -50,8 +50,8 @@ body::-webkit-scrollbar-track-piece {
   animation: Gradient 60s linear infinite;
   color: #fff;
 }
-
-#vcomments .vwrap, #right {
+/* , #right */
+#vcomments .vwrap {
   border-color: #23A6D5;
   border-width: 1px;
   border-style: solid;

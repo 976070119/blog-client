@@ -1,4 +1,3 @@
-// import css from './list.module.css'
 import Head from 'next/head'
 import { withRouter } from 'next/router'
 import react, { useEffect, useRef } from 'react'
@@ -67,8 +66,8 @@ function Detail({ data }) {
 
 
 }
-export async function getServerSideProps(context) {
-    const _id = context.query.id;
+export async function getServerSideProps({query}) {
+    const _id = query.id;
     const res = await fetch(`http://47.100.39.25:2653/oneArticle?_id=${_id}`) //articleList
     const data = await res.json();
     return {

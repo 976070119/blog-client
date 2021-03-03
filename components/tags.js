@@ -14,7 +14,7 @@ function Tags(props) {
     return (
         <div className={styles.tags}>
             {
-                props.data.map((i) => <span className={styles.tag} onClick={searchTags}>{i}</span> )
+                props.data.map((i, j) => <span className={styles.tag} onClick={searchTags} key={j}>{i}</span> )
             }
         </div>
     )
